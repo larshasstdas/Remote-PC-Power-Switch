@@ -4,6 +4,8 @@ A wireless remote power switch for desktop PCs, built around a 433 MHz RF transm
 > ⚠️ **Read the entire README before building or wiring anything.**
 > This project connects to a live motherboard — skipping the README can cost you hardware.
 
+<img width="1605" height="509" alt="WhatsApp Image 2026-06-20 dadda" src="https://github.com/user-attachments/assets/a407b295-b4e7-488d-8dff-001ab0f3c669" />
+
 ---
 
 ## Motivation
@@ -21,6 +23,8 @@ The whole circuit is powered from a USB port that stays live in S5 (standby), en
 ---
 
 ## Demo
+
+▶️ [Watch the demo (YouTube Short)](https://youtube.com/shorts/TQeXVGS3ae0)
 
 ---
 
@@ -95,11 +99,11 @@ transmitter/
 
 ## Wiring overview
 
-The transmitter is a bare 433 MHz RF board with just two connections: + and GND, fed from a 3–24 V source. A momentary push-button sits in the positive line, so the board is only powered — and only transmits — while the button is pressed. Each press sends the RF signal the receiver listens for.
+The transmitter is a 433 MHz RF board with just two connections: + and GND, fed from a button cell battery. A momentary push-button sits in the positive line, so the board is only powered and only transmits while the button is pressed. Each press sends the RF signal the receiver listens for.
 
 <img width="690" height="478" alt="image" src="https://github.com/user-attachments/assets/51204a8b-f7ad-47fd-8ddf-78119028ba95" />
 
-The receiver is powered from the PC's USB 2.0 header (VCC + Ground — see pinout). Its switched output drives the relay module, whose potential-free contact is wired across the Power Switch pins of the JFP1 front-panel header. When the receiver gets a signal, the relay briefly closes that contact — the motherboard reads it as a normal power-button press.
+The receiver is powered from the PC's USB 2.0 header (see pinout). Its switched output drives the relay module, whose potential-free contact is wired across the Power Switch pins of the JFP1 front-panel header. When the receiver gets a signal, the relay shorts that contact and the motherboard reads it as a normal power-button press. You need to check your mainboard manuel if your pinout on the mainboard is the same to be safe but there should't be any major differences.
 
 <img width="1636" height="901" alt="image" src="https://github.com/user-attachments/assets/a55c320c-1035-4445-bd5f-fae411301ceb" />
 
@@ -108,23 +112,72 @@ The receiver is powered from the PC's USB 2.0 header (VCC + Ground — see pinou
 
 ## Pairing the receiver (momentary mode)
 
-1. Reset: press the receiver's Learning button **8×** → LED flashes and goes out.
-2. Press the Learning button **1×** → LED stays on (setup mode).
-3. Trigger the transmitter → LED flashes and goes out = paired.
-4. Test: the relay should close only **while** the transmitter is sending.
+1. Reset: press the receiver's Learning button **8×** → LED flashes and goes out
+2. Press the Learning button **1×** → LED stays on
+3. Trigger the transmitter → LED flashes and goes out = paired
+4. Test: the relay should close only **while** the transmitter is sending
 
 ---
 
 ## Assembly
 
-### Receiver
+### Receiver Assembly
 
-<img width="1080" height="1920" alt="image" src="https://github.com/user-attachments/assets/c5ae8063-5feb-434e-a205-6e50a2e919c7" />
+1. **Crimp the wires.** Crimp Dupont connectors onto the wires that link the
+  box with the motherboard pins.
+2. **Wire the relay.** Screw the wires into the relay module's terminals as shown
+   in the [Wiring overview](#wiring-overview) above.
+   
+   <img width="1411" height="530" alt="WhatsApp Image 2026-06-14 at 21 59 54" src="https://github.com/user-attachments/assets/3740e503-358f-443d-9474-8a36710977ed" />
+
+3. **Place the modules.** Seat the receiver module and the relay module in their
+   designated spots in the enclosure.
+4. **Route the wires.** Two wires must run *underneath* the relay; gently bend
+   the remaining wires into place so nothing is getting pinched.
+   
+  <img width="1724" height="719" alt="WhatsApp Image 2026-06-14 at 23 08 51" src="https://github.com/user-attachments/assets/7efd94c3-04e8-44d2-98d2-17314b9d80d3" />
 
 
-### Transmitter
+5. **Close the case.** Bring the enclosure halves together.
 
-<img width="1080" height="1920" alt="image" src="https://github.com/user-attachments/assets/c90d9a84-7dec-4ff1-9ac6-76ac8ef292a7" />
+<img width="1724" height="719" alt="WhatsApp Image 2026-06-14 at 23 08 51" src="https://github.com/user-attachments/assets/79259a96-b5d3-481e-9abc-e5f0b4a84310" />
+
+---
+
+### Transmitter Assembly
+
+1. **Tin the desoldering braid.** Tin two lengths of desoldering braid with
+   solder — one **3.5 cm**, one **4 cm** — to act as battery contacts.
+
+2. **Place the contacts.** Fit the 3.5 cm braid into the **battery cover** and the
+   4 cm braid into the **bottom half** of the housing.
+   
+   <img width="1386" height="591" alt="WhatsApp Image 2026-06-17 at 16 34 40" src="https://github.com/user-attachments/assets/128bfe7a-561f-43b3-be90-433e0b27058d" />
+
+3. **Solder the Dupont pins.** Solder a shortened Dupont pin to each contact.
+   Hold steady as the surrounding plastic will melt.
+   
+    <img width="466" height="438" alt="WhatsApp Image 2026-06-19 at 16 45 19" src="https://github.com/user-attachments/assets/b00c6bde-3258-47e0-89b9-328961b65948" />
+    
+4. **Wire the button.** Solder the wires to the push-button as shown in the
+   [Wiring overview](#wiring-overview) above. All battery connections use dupont
+   plugs.
+
+   <img width="950" height="1259" alt="WhatsApp Image 2026-06-18 at 18 13 57" src="https://github.com/user-attachments/assets/b2e540fb-4941-4692-89c1-a017a660d76a" />
+
+5. **Mount the module and button.** Feed the transmitter module through the button
+   opening and fix the button in place with its nut.
+6. **Place and route.** Seat the module in its designated spot, then bend the
+   antenna and wires into place.
+
+    <img width="1121" height="750" alt="WhatsApp Image 2026-06-19 at 22 16 51" src="https://github.com/user-attachments/assets/40862b54-9a4c-4986-bc98-e97118ced9f4" />
+
+7. **Insert the battery cover.** Set the battery cover in and connect its pins.
+8. **Close the case.** Carefully bring the enclosure halves together.
+9. **Insert the battery.** Slide the battery sled in with the battery installed.
+
+<img width="875" height="901" alt="WhatsApp Image 2026-06-21 at 11 59 23" src="https://github.com/user-attachments/assets/29671b41-5d62-4ef6-9958-254db20cba80" />
+
 
 
 ---
