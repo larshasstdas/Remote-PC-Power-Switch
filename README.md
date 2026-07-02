@@ -1,5 +1,5 @@
 # Wireless RF PC Power Button
-A wireless remote power switch for desktop PCs, built around a 433 MHz RF transmitter and receiver. The receiver drives a relay whose potential-free contact bridges the motherboard's power-switch header (JFP1), so a press on the handheld transmitter powers the machine on — exactly like pressing the case button, but from across the room.
+This repository is about a wireless remote power switch for your PC. It is built with a 433 MHz RF transmitter and receiver. The receiver drives a relay whose potential-free contact bridges the motherboard's power-switch header. If you press the button on the transmitter it powers the PC on from across the room.
 
 > ⚠️ **Read the entire README before building or wiring anything.**
 > This project connects to a live motherboard — skipping the README can cost you hardware.
@@ -9,16 +9,15 @@ A wireless remote power switch for desktop PCs, built around a 433 MHz RF transm
 ---
 
 ## Motivation
-My PC is in a hard to reach spot so getting up to reach the physical power button is a hassle. So I built a small RF receiver that taps into the motherboard's front-panel power header and lets me switch the system on wirelessly without leaving my chair.
+My PC is in a hard to reach spot so getting up to reach the physical power button is a hassle. So I built a small RF receiver that lets me switch the system on wirelessly without leaving my chair.
 
 ---
 
 ## How it works
-A QIACHIP TX181-4 handheld transmitter sends a 433 MHz signal on button press.
-A QIACHIP QA-R-012V3 receiver, set to momentary mode, switches its output only while the signal is present.
-The receiver output powers a 5 V relay module (JQC3F-05VDC), whose potential-free COM/NO contact is wired across the two power-switch pins of the motherboard header.
-Because the relay contact is galvanically isolated, no voltage ever reaches the header — it only closes the circuit, mimicking a real button press.
-The whole circuit is powered from a USB port that stays live in S5 (standby), enabled via BIOS.
+A QIACHIP TX181-4 transmitter sends a 433 MHz signal on button press.
+A QIACHIP QA-R-012V3 receiver, set to momentary mode, switches its output only while the signal is sent.
+The receiver output powers a relay module, whose contact is wired across the two power-switch pins of the motherboard header and shorts the power pins.
+The whole circuit is powered from a USB port.
 
 ---
 
@@ -57,9 +56,8 @@ Links for the parts i used and that fit my 3D-print enclosure. I wont list any m
 
 The 3D-printed enclosure is split into two folders — one for each device — with every
 part provided in three formats: native **Creo Parametric** (`.prt`) for editing, **STEP**
-(`.step`) for use in any other CAD package, and **STL** (`.stl`) ready to slice and print.
-The receiver housing is a simple two-piece `top` / `bottom` shell. The transmitter adds a
-`battery_cover` and a `battery_sled` that holds the cell and aligns it with the contacts. 
+(`.step`) for use in any other CAD package, and **STL** (`.stl`) which can be sliced and printed.
+The receiver housing  has a `top` and a `bottom` while the transmitter adds a `battery_cover` and a `battery_sled` that holds the cell and aligns it with the contacts. 
 In the creo files there is also a full assembly of each box (`.asm`).
 
 ### Files
@@ -99,11 +97,11 @@ transmitter/
 
 ## Wiring overview
 
-The transmitter is a 433 MHz RF board with just two connections: + and GND, fed from a button cell battery. A momentary push-button sits in the positive line, so the board is only powered and only transmits while the button is pressed. Each press sends the RF signal the receiver listens for.
+The transmitter is a 433 MHz RF board with just two connections: + and GND, fed from a button cell battery. A button sits in the positive line, so the board is only powered and only transmits while the button is pressed. Each press sends the RF signal the receiver listens for.
 
 <img width="690" height="478" alt="image" src="https://github.com/user-attachments/assets/51204a8b-f7ad-47fd-8ddf-78119028ba95" />
 
-The receiver is powered from the PC's USB 2.0 header (see pinout). Its switched output drives the relay module, whose potential-free contact is wired across the Power Switch pins of the JFP1 front-panel header. When the receiver gets a signal, the relay shorts that contact and the motherboard reads it as a normal power-button press. You need to check your mainboard manuel if your pinout on the mainboard is the same to be safe but there should't be any major differences.
+The receiver is powered from the PC's USB 2.0 header (see pinout). When the receiver gets a signal, the relay shorts the power pins and the motherboard reads it as a normal power-button press. You need to check your mainboard manuel if your pinout on the mainboard is the same to be safe but there shouldn't be any major differences.
 
 <img width="1636" height="901" alt="image" src="https://github.com/user-attachments/assets/a55c320c-1035-4445-bd5f-fae411301ceb" />
 
@@ -147,7 +145,7 @@ The receiver is powered from the PC's USB 2.0 header (see pinout). Its switched 
 ### Transmitter Assembly
 
 1. **Tin the desoldering braid.** Tin two lengths of desoldering braid with
-   solder — one **3.5 cm**, one **4 cm** — to act as battery contacts.
+   solder, one needs to be **3.5 cm**, the other one **4 cm**. They are the battery contacts.
 
 2. **Place the contacts.** Fit the 3.5 cm braid into the **battery cover** and the
    4 cm braid into the **bottom half** of the housing.
@@ -184,7 +182,7 @@ The receiver is powered from the PC's USB 2.0 header (see pinout). Its switched 
 
 ## Getting 5 V while the PC is off
 
-The circuit needs power in the soft-off state (S5) so the receiver can listen for the signal. A normal USB port is usually dead when the PC is off — you have to enable standby power in the BIOS, or use an always-on source.
+The circuit needs power in the soft-off state (S5) so the receiver can listen for the signal. A normal USB port is usually dead when the PC is off so you have to enable standby power in the BIOS, or use an always-on source.
 
 | Setting | Value | Why |
 |---------|-------|-----|
