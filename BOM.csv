@@ -1,0 +1,9 @@
+﻿Part;Description;Links
+QIACHIP TX181-4;433 MHz transmitter;https://de.aliexpress.com/item/1005008804838337.html?spm=a2g0o.order_list.order_list_main.11.23b118025INdwz&gatewayAdapt=glo2deu
+QIACHIP QA-R-012V3;433 MHz receiver;
+5V single-channel relay;shorts the pins;https://de.aliexpress.com/item/1005004594181635.html?spm=a2g0o.order_list.order_list_main.17.23b118025INdwz&gatewayAdapt=glo2deu
+Button;used for sending the signal;https://de.aliexpress.com/item/1005012177068665.html?pm=a2g0o.cart.0.0.22e638daetG5uO&mp=1&pdp_npi=6%40dis%21EUR%21EUR+42.10%21EUR+16.39%21%21EUR+16.39%21%21%21%400b8848e317819510011406436e0fbb%2112000057680737414%21ct%21DE%218046212832%21%211%210%21&gatewayAdapt=glo2deu
+CR2025 Battery;used to power the transmitter;
+desoldering wick (coated with solder);used as a battery contact;
+ dupont jumper wires & pins;;
+3D-printed box;;
