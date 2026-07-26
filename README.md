@@ -1,29 +1,29 @@
-# Wireless RF PC Power Button
-This repository is about a wireless remote power switch for your PC. It is built with a 433 MHz RF transmitter and receiver. The receiver drives a relay whose potential-free contact bridges the motherboard's power-switch header. If you press the button on the transmitter it powers the PC on from across the room.
+# Wireless PC Power Button
+This project is about a wireless PC power button I build. A 433MHz receiver shorts the power header pins on the mainboard with the help of an relay. The sender is powered by a small battery and send only when the button is pressed.
 
-> ⚠️ **Read the entire README before building or wiring anything.**
-> This project connects to a live motherboard — skipping the README can cost you hardware.
+> ⚠️ **Read the README before building!**
+> This project connects to a live motherboard and skipping the README can cost you hardware.
 
 <img width="1605" height="509" alt="WhatsApp Image 2026-06-20 dadda" src="https://github.com/user-attachments/assets/a407b295-b4e7-488d-8dff-001ab0f3c669" />
 
 ---
 
 ## Motivation
-My PC is in a hard to reach spot so getting up to reach the physical power button is a hassle. So I built a small RF receiver that lets me switch the system on wirelessly without leaving my chair.
+It is annoying to always reach for my PC power button so I got the idea to build a switch that lets me power my PC wirelessly without leaving my chair.
 
 ---
 
 ## How it works
-A QIACHIP TX181-4 transmitter sends a 433 MHz signal on button press.
-A QIACHIP QA-R-012V3 receiver, set to momentary mode, switches its output only while the signal is sent.
-The receiver output powers a relay module, whose contact is wired across the two power-switch pins of the motherboard header and shorts the power pins.
-The whole circuit is powered from a USB port.
+The QIACHIP TX181-4 transmitter sends a 433 MHz signal when a button is pressed.
+The QIACHIP QA-R-012V3 receiver (in momentary mode) has an output voltage when a signal is sent.
+The receiver is connected to a relay, which shorts the power pins of the header on my motherboard when there is voltage on the input pins.
+The receiver is powered by USB port which needs specific BIOS to always have power and the transmitter is powered by a button battery cell.
 
 ---
 
 ## Demo
 
-▶️ [Watch the demo (YouTube Short)](https://youtube.com/shorts/TQeXVGS3ae0)
+[Youtube Demo](https://youtube.com/shorts/TQeXVGS3ae0)
 
 ---
 
@@ -32,34 +32,33 @@ The whole circuit is powered from a USB port.
 
 | Part | Description |
 |------|-------------|
-| QIACHIP TX181-4 | 433 MHz RF handheld transmitter |
-| QIACHIP QA-R-012V3 | 433 MHz RF receiver module |
-| Relay module | 5 V single-channel |
-| Button | The button used for sending the signal |
-| CR2025 Battery | Battery used to power the transmitter |
-| desoldering wick | used as a battery contact |
-| Misc | dupont jumper wires and pins,  3D-printed enclosure |
+| QIACHIP TX181-4 | 433 MHz transmitter |
+| QIACHIP QA-R-012V3 | 433 MHz receiver |
+| Relay module | 5V single-channel |
+| Button | used for sending the signal |
+| CR2025 Battery | used to power the transmitter |
+| desoldering wick (coated with solder) | used as a battery contact |
+| Misc | dupont jumper wires and pins,  3D-printed box |
 
 ### Links
 
-Links for the parts i used and that fit my 3D-print enclosure. I wont list any miscellaneous parts. All my parts are from AliExpress.
+In the following are links i used for my parts and that fit my 3D printed box. Ther are not any miscellaneous parts. All my parts are from AliExpress.
 
 | Part | Link |
 |------|------|
-| Transmitter + Receiver | https://de.aliexpress.com/item/1005008804838337.html?spm=a2g0o.order_list.order_list_main.11.23b118025INdwz&gatewayAdapt=glo2deu |
+| Transmitter & Receiver | https://de.aliexpress.com/item/1005008804838337.html?spm=a2g0o.order_list.order_list_main.11.23b118025INdwz&gatewayAdapt=glo2deu |
 | Relay module | https://de.aliexpress.com/item/1005004594181635.html?spm=a2g0o.order_list.order_list_main.17.23b118025INdwz&gatewayAdapt=glo2deu |
-| Button | https://de.aliexpress.com/item/1005012177068665.html?spm=a2g0o.cart.0.0.22e638daetG5uO&mp=1&pdp_npi=6%40dis%21EUR%21EUR+42.10%21EUR+16.39%21%21EUR+16.39%21%21%21%400b8848e317819510011406436e0fbb%2112000057680737414%21ct%21DE%218046212832%21%211%210%21&gatewayAdapt=glo2deu |
+| Button | https://de.aliexpress.com/item/1005012177068665.html?pm=a2g0o.cart.0.0.22e638daetG5uO&mp=1&pdp_npi=6%40dis%21EUR%21EUR+42.10%21EUR+16.39%21%21EUR+16.39%21%21%21%400b8848e317819510011406436e0fbb%2112000057680737414%21ct%21DE%218046212832%21%211%210%21&gatewayAdapt=glo2deu |
 
 ---
 
-## Enclosure
+## Box
 
-The 3D-printed enclosure is split into two folders — one for each device — with every
-part provided in three formats: native **Creo Parametric** (`.prt`) for editing, **STEP**
-(`.step`) for use in any other CAD package, and **STL** (`.stl`) which can be sliced and printed.
+There are two 3D printed boxes with a folder each. They have the original **Creo Parametric** (`.prt`) file for editing, **STEP**
+(`.step`) for use in other CAD programms, and **STL** (`.stl`) which can be sliced and printed.
 The receiver housing  has a `top` and a `bottom` while the transmitter adds a `battery_cover` and a `battery_sled` that holds the cell and aligns it with the contacts. 
 In the creo files there is also a full assembly of each box (`.asm`).
-
+Furthermore there is the Bill of Material (`BOM.csv`) that are needed but it is just the same as what is written above.
 ### Files
 
 ```
@@ -92,16 +91,17 @@ transmitter/
     ├── transmitter_bottom.stl
     ├── battery_cover.stl
     └── battery_sled.step
+BOM.csv
 ```
 ---
 
 ## Wiring overview
 
-The transmitter is a 433 MHz RF board with just two connections: + and GND, fed from a button cell battery. A button sits in the positive line, so the board is only powered and only transmits while the button is pressed. Each press sends the RF signal the receiver listens for.
+The transmitter is a 433 MHz RF board with just two connections: + and GND, powered by a button cell battery. The transmitter only transmits whhen the button is pressed. Each press sends a signal the receiver receives and responds with an output voltage.
 
 <img width="690" height="478" alt="image" src="https://github.com/user-attachments/assets/51204a8b-f7ad-47fd-8ddf-78119028ba95" />
 
-The receiver is powered from the PC's USB 2.0 header (see pinout). When the receiver gets a signal, the relay shorts the power pins and the motherboard reads it as a normal power-button press. You need to check your mainboard manuel if your pinout on the mainboard is the same to be safe but there shouldn't be any major differences.
+The receiver is powered from the PC's USB 2.0 header. When the receiver gets a signal, the relay shorts the power pins and the motherboard thinks it is a normal power button press. You need to check your mainboard manuel if your pinout on the mainboard is the same to be safe but there shouldn't be any major differences.
 
 <img width="1636" height="901" alt="image" src="https://github.com/user-attachments/assets/a55c320c-1035-4445-bd5f-fae411301ceb" />
 
@@ -110,8 +110,8 @@ The receiver is powered from the PC's USB 2.0 header (see pinout). When the rece
 
 ## Pairing the receiver (momentary mode)
 
-1. Reset: press the receiver's Learning button **8×** → LED flashes and goes out
-2. Press the Learning button **1×** → LED stays on
+1. Reset: press the receiver's Learning button **8** times → LED flashes and goes out
+2. Press the Learning button **once** → LED stays on
 3. Trigger the transmitter → LED flashes and goes out = paired
 4. Test: the relay should close only **while** the transmitter is sending
 
@@ -130,13 +130,12 @@ The receiver is powered from the PC's USB 2.0 header (see pinout). When the rece
 
 3. **Place the modules.** Seat the receiver module and the relay module in their
    designated spots in the enclosure.
-4. **Route the wires.** Two wires must run *underneath* the relay; gently bend
-   the remaining wires into place so nothing is getting pinched.
+4. **Route the wires.** Two wires must run underneath the relay. Bend the remaining wires into place so nothing is getting pinched when closing the box.
    
   <img width="1724" height="719" alt="WhatsApp Image 2026-06-14 at 23 08 51" src="https://github.com/user-attachments/assets/7efd94c3-04e8-44d2-98d2-17314b9d80d3" />
 
 
-5. **Close the case.** Bring the enclosure halves together.
+5. **Close the case.** Bring the box halves together.
 
 <img width="1724" height="719" alt="WhatsApp Image 2026-06-14 at 23 08 51" src="https://github.com/user-attachments/assets/79259a96-b5d3-481e-9abc-e5f0b4a84310" />
 
@@ -144,7 +143,7 @@ The receiver is powered from the PC's USB 2.0 header (see pinout). When the rece
 
 ### Transmitter Assembly
 
-1. **Tin the desoldering braid.** Tin two lengths of desoldering braid with
+1. **Coating the desoldering braid with solder.** Coat the two pieces of desoldering braid with
    solder, one needs to be **3.5 cm**, the other one **4 cm**. They are the battery contacts.
 
 2. **Place the contacts.** Fit the 3.5 cm braid into the **battery cover** and the
@@ -180,7 +179,7 @@ The receiver is powered from the PC's USB 2.0 header (see pinout). When the rece
 
 ---
 
-## Getting 5 V while the PC is off
+## Getting 5V while the PC is off
 
 The circuit needs power in the soft-off state (S5) so the receiver can listen for the signal. A normal USB port is usually dead when the PC is off so you have to enable standby power in the BIOS, or use an always-on source.
 
@@ -189,31 +188,22 @@ The circuit needs power in the soft-off state (S5) so the receiver can listen fo
 | `ErP Ready` | **Disabled** | Keeps standby power flowing in S5 instead of cutting it for power saving |
 | `Resume By USB Device` | **Enabled** | Provides standby power on the USB rails so the port stays live when the PC is off |
 
-**Verify with a multimeter** that the USB VCC pin actually carries ~5 V while the PC is shut down.
+**Verify with a multimeter** that the USB VCC pin actually carries 5V while the PC is shut down.
 
 ### Alternative power sources
 
-- **External 5 V supply**  — always on, fully independent of the PC and BIOS. The simplest option, and it works because the relay contact is potential-free.
-- **5 V standby ** — the purple wire on the 24-pin ATX connector, always live whenever the PSU is connected and switched on at the back.
+- **External 5V supply**: always on, fully independent of the PC and BIOS. The simplest option, and it works because the relay contact is potential-free.
+- **5V standby**: the purple wire on the 24-pin ATX connector, always live whenever the PSU is connected and switched on at the back.
 
 ---
 
 ## ⚠️ Warnings
 
-- The relay contact **must be potential-free** — never feed supply voltage into the motherboard header. Use only COM + NO across the two power-switch pins.
-- The receiver needs **≥ 3.6 V**, and the 5 V relay coil won't pull in reliably below ~4 V. 
-- Use **momentary mode** on the receiver (Learning button × 1, then trigger the transmitter) so the relay only pulses briefly, like a real power button.
-- If pairing is lost ("worked once, then nothing"), reset the receiver (Learning button × 8) and re-pair in momentary mode.
-- Keep at least 30–50 cm between transmitter and receiver during bench testing — these cheap super-regen receivers can go deaf in the near field.
+The relay contact **must be potential-free**. Never feed supply voltage into the motherboard header. Use only COM + NO across the two power-switch pins.
+As this project connects to a live PC only work on the motherboard with the PC comletly powered down (flip the switch on the back when shut off or pull the cable). 
+Do this at your own risk.
 
 ---
-
-
-## Safety
-
-This project connects to a live PC. Work on the motherboard header only with the system fully powered down. Double-check the relay contact is potential-free and that you are wiring to the correct JFP1 power-switch pins before powering anything on. Do this at your own risk.
-
-
 
 
 
