@@ -83,7 +83,7 @@ transmitter/
     ├── transmitter_top.stl
     ├── transmitter_bottom.stl
     ├── battery_cover.stl
-    └── battery_sled.step
+    └── battery_sled.stl
 BOM.csv
 ```
 ---
