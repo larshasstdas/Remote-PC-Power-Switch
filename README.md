@@ -27,28 +27,21 @@ The receiver is powered by USB port which needs specific BIOS to always have pow
 
 ---
 
+## Bill of Materials
 
-## Hardware
+All electronic parts are from AliExpress. The transmitter and receiver ship together as one 433 MHz kit. The enclosure is 3D-printed (files in this repo), so its only cost is filament. Miscellaneous parts (wick, dupont wires, battery) have no dedicated link and the price is a rough estimate.
 
-| Part | Description |
-|------|-------------|
-| QIACHIP TX181-4 | 433 MHz transmitter |
-| QIACHIP QA-R-012V3 | 433 MHz receiver |
-| Relay module | 5V single-channel |
-| Button | used for sending the signal |
-| CR2025 Battery | used to power the transmitter |
-| desoldering wick (coated with solder) | used as a battery contact |
-| Misc | dupont jumper wires and pins,  3D-printed box |
-
-### Links
-
-In the following are links i used for my parts and that fit my 3D printed box. Ther are not any miscellaneous parts. All my parts are from AliExpress.
-
-| Part | Link |
-|------|------|
-| Transmitter & Receiver | https://de.aliexpress.com/item/1005008804838337.html?spm=a2g0o.order_list.order_list_main.11.23b118025INdwz&gatewayAdapt=glo2deu |
-| Relay module | https://de.aliexpress.com/item/1005004594181635.html?spm=a2g0o.order_list.order_list_main.17.23b118025INdwz&gatewayAdapt=glo2deu |
-| Button | https://de.aliexpress.com/item/1005012177068665.html?pm=a2g0o.cart.0.0.22e638daetG5uO&mp=1&pdp_npi=6%40dis%21EUR%21EUR+42.10%21EUR+16.39%21%21EUR+16.39%21%21%21%400b8848e317819510011406436e0fbb%2112000057680737414%21ct%21DE%218046212832%21%211%210%21&gatewayAdapt=glo2deu |
+| Part                        | Description                                   | Qty | Unit Price | Link |
+| --------------------------- | --------------------------------------------- | --- | ---------- | ---- |
+| QIACHIP TX181-4             | 433 MHz transmitter (TX+RX kit)               | 1   | ~€4.59     | [AliExpress](https://de.aliexpress.com/item/1005008804838337.html) |
+| QIACHIP QA-R-012V3          | 433 MHz receiver (same kit as above)          | 1   | –          | [AliExpress](https://de.aliexpress.com/item/1005008804838337.html) |
+| 5V single-channel relay     | Shorts the motherboard power-header pins       | 1   | ~€1.85     | [AliExpress](https://de.aliexpress.com/item/1005004594181635.html) |
+| Push button                 | Triggers the transmitter                       | 1   | ~€4.79     | [AliExpress](https://de.aliexpress.com/item/1005007336010480.html) |
+| CR2025 battery              | Powers the transmitter                         | 1   | ~€0.50     | – |
+| Desoldering wick            | Coated with solder; battery contacts (~7.5 cm) | 1   | ~€0.30     | – |
+| Dupont jumper wires & pins  | Internal wiring and connectors                 | 1   | ~€0.50     | – |
+| 3D-printed enclosure        | Filament for both housings (files in repo)     | 1   | ~€0.50     | – |
+| **Total**                   |                                                |     | **~€13.03** | |
 
 ---
 
