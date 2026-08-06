@@ -1,9 +1,9 @@
-﻿Part;Description;Links
-QIACHIP TX181-4;433 MHz transmitter;https://de.aliexpress.com/item/1005008804838337.html?spm=a2g0o.order_list.order_list_main.11.23b118025INdwz&gatewayAdapt=glo2deu
-QIACHIP QA-R-012V3;433 MHz receiver;
-5V single-channel relay;shorts the pins;https://de.aliexpress.com/item/1005004594181635.html?spm=a2g0o.order_list.order_list_main.17.23b118025INdwz&gatewayAdapt=glo2deu
-Button;used for sending the signal;https://de.aliexpress.com/item/1005012177068665.html?pm=a2g0o.cart.0.0.22e638daetG5uO&mp=1&pdp_npi=6%40dis%21EUR%21EUR+42.10%21EUR+16.39%21%21EUR+16.39%21%21%21%400b8848e317819510011406436e0fbb%2112000057680737414%21ct%21DE%218046212832%21%211%210%21&gatewayAdapt=glo2deu
-CR2025 Battery;used to power the transmitter;
-desoldering wick (coated with solder);used as a battery contact;
- dupont jumper wires & pins;;
-3D-printed box;;
+Part,Description,Quantity,Unit Price (EUR),Link
+QIACHIP TX181-4,433 MHz transmitter (TX+RX kit),1,4.59,https://de.aliexpress.com/item/1005008804838337.html
+QIACHIP QA-R-012V3,433 MHz receiver (same kit as above),1,0.00,https://de.aliexpress.com/item/1005008804838337.html
+5V single-channel relay,Shorts the motherboard power-header pins,1,1.85,https://de.aliexpress.com/item/1005004594181635.html
+Push button,Triggers the transmitter,1,4.79,https://de.aliexpress.com/item/1005007336010480.html
+CR2025 battery,Powers the transmitter,1,0.50,
+Desoldering wick,Coated with solder; used as battery contacts (~7.5 cm total),1,0.30,
+Dupont jumper wires & pins,Internal wiring and connectors,1,0.50,
+3D-printed enclosure,Filament for receiver + transmitter housings,1,0.50,
