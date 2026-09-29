@@ -50,7 +50,7 @@ All electronic parts are from AliExpress. The transmitter and receiver ship toge
 There are two 3D printed boxes with a folder each. They have the original **Creo Parametric** (`.prt`) file for editing, **STEP**
 (`.step`) for use in other CAD programms, and **STL** (`.stl`) which can be sliced and printed.
 The receiver housing  has a `top` and a `bottom` while the transmitter adds a `battery_cover` and a `battery_sled` that holds the cell and aligns it with the contacts. 
-In the creo files there is also a full assembly of each box (`.asm`).
+In the creo files and in the step files there is also a full assembly of each box (`.asm`). All the extra parts used for the assembly are not listed in the creo files.
 Furthermore there is the Bill of Material (`BOM.csv`) that are needed but it is just the same as what is written above.
 ### Files
 
@@ -61,6 +61,7 @@ receiver/
     ├── receiver_bottom.prt
     └── receiver.asm
 ├── step/
+    ├── receiver_asm.step
     ├── receiver_top.step
     └── receiver_bottom.step
 └── stl/
@@ -75,6 +76,7 @@ transmitter/
     ├── battery_sled.prt
     └── transmitter.asm
 ├── step/
+    ├── transmitter_asm.step
     ├── transmitter_top.step
     ├── transmitter_bottom.step
     ├── battery_cover.step
@@ -130,8 +132,6 @@ The receiver is powered from the PC's USB 2.0 header. When the receiver gets a s
 
 5. **Close the case.** Bring the box halves together.
 
-<img width="1724" height="719" alt="WhatsApp Image 2026-06-14 at 23 08 51" src="https://github.com/user-attachments/assets/79259a96-b5d3-481e-9abc-e5f0b4a84310" />
-
 ---
 
 ### Transmitter Assembly
@@ -163,8 +163,11 @@ The receiver is powered from the PC's USB 2.0 header. When the receiver gets a s
     <img width="1121" height="750" alt="WhatsApp Image 2026-06-19 at 22 16 51" src="https://github.com/user-attachments/assets/40862b54-9a4c-4986-bc98-e97118ced9f4" />
 
 7. **Insert the battery cover.** Set the battery cover in and connect its pins.
-8. **Close the case.** Carefully bring the enclosure halves together.
-9. **Insert the battery.** Slide the battery sled in with the battery installed.
+
+   <img width="1080" height="1920" alt="image" src="https://github.com/user-attachments/assets/cda99b35-5df5-43e8-9711-1bd6bcbc65d5" />
+
+9. **Close the case.** Carefully bring the enclosure halves together.
+10. **Insert the battery.** Slide the battery sled in with the battery installed.
 
 <img width="875" height="901" alt="WhatsApp Image 2026-06-21 at 11 59 23" src="https://github.com/user-attachments/assets/29671b41-5d62-4ef6-9958-254db20cba80" />
 
